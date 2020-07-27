@@ -145,10 +145,10 @@ def make_coco_transforms(image_set):
 
 def build(image_set, args):
     assert Path(args.train_labels_path).exists()
-    assert Path(args.train_labels_path).exists()
+    assert Path(args.val_labels_path).exists()
     assert Path(args.images_path).exists()
     PATHS = {"train": (args.images_path, args.train_labels_path),
-             "val": (args.images_path, args.train_labels_path)}
+             "val": (args.images_path, args.val_labels_path)}
 
     img_folder, ann_file = PATHS[image_set]
     dataset = CocoDetection(img_folder, ann_file, transforms=make_coco_transforms(image_set), return_masks=args.masks)
