@@ -189,7 +189,7 @@ path/to/coco/
 ## Training
 To train baseline DETR on a single node with 8 gpus for 300 epochs run:
 ```
-python -m torch.distributed.launch --nproc_per_node=8 --use_env main.py --coco_path /path/to/coco 
+python -m torch.distributed.launch --nproc_per_node=1 --use_env main.py --train_labels_path ~/software/detr/jsons/coco_aerial_train.json --val_labels_path ~/software/detr/jsons/coco_aerial_val.json --images_path /data/buildings/AerialImageDataset/images --masks --batch_size 2 --epochs 300 --num_workers 6 --num_queries 10 --num_classes 1
 ```
 A single epoch takes 28 minutes, so 300 epoch training
 takes around 6 days on a single machine with 8 V100 cards.
