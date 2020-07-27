@@ -87,7 +87,7 @@ def get_args_parser():
     parser.add_argument('--images_path', type=str)
     parser.add_argument('--remove_difficult', action='store_true')
 
-    parser.add_argument('--output_dir', default='./' + str(datetime.date(datetime.now())),
+    parser.add_argument('--output_dir', default='./output_' + str(datetime.date.today().year) + str(datetime.date.today().month) + str(datetime.date.today().day),
                         help='path where to save, empty for no saving')
     parser.add_argument('--device', default='cuda',
                         help='device to use for training / testing')
